@@ -1,0 +1,4 @@
+Funciona con JDK 1.8 (8)
+puerto: 8080
+comando: java -jar company-0.0.1-SNAPSHOT.jar
+El proyecto fue hecho en IntelliJ IDEA comunity 2022

@@ -1,0 +1,20 @@
+Usuario mysql:root
+Contraseña del usuario:
+Puerto:3306
+
+CREATE DATABASE `company`;
+
+CREATE TABLE `employee` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `doc_type` varchar(255) NOT NULL,
+  `doc` varchar(50) NOT NULL,
+  `birthdate` datetime NOT NULL,
+  `bind_date` datetime NOT NULL,
+  `position` varchar(100) NOT NULL,
+  `salary` double NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `employee_UN` (`doc`),
+  UNIQUE KEY `UK8audd27b5ndjwc8p32ju4trdf` (`doc`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

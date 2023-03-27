@@ -1,0 +1,5 @@
+Funciona con JDK 1.8.0_361 (8)
+Ruta del servicio: http://localhost:2022/WS/Service?WSDL
+donde 2022 es el puerto
+El proyecto fue hecho en Eclipse 2023-03
+comando: java -jar company.jar
