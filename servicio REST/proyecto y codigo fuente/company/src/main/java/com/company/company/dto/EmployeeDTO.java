@@ -1,9 +1,9 @@
 package com.company.company.dto;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 public class EmployeeDTO {
     // Attributes
@@ -21,10 +21,10 @@ public class EmployeeDTO {
     @Size(min = 8, message = "The document number field must have at least 8 characters")
     private String doc;
     @NotEmpty(message = "The birthdate date field cannot be empty")
-    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    @Pattern(regexp = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$", message = "Invalid format to binding date field. yyyy-MM-dd expected")
     private String birthdate;
     @NotEmpty(message = "The binding date field cannot be empty")
-    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    @Pattern(regexp = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$", message = "Invalid format to binding date field. yyyy-MM-dd expected")
     private String bind_date;
     @NotEmpty(message = "The position field cannot be empty")
     @Size(min = 2, message = "The position field must have at least 2 characters")

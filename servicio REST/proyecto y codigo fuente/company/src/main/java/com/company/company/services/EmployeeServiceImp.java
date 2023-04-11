@@ -43,14 +43,8 @@ public class EmployeeServiceImp implements EmployeeService{
     }
     @Override
     public EmployeeDTO createEmployee(EmployeeDTO employeeDTO) throws ParseException {
-        if (!Helpers.validateDateFormat(employeeDTO.getBind_date()))
-            throw new InvalidDataException("Invalid format to binding date field. yyyy-MM-dd expected");
-        if (!Helpers.validateDateFormat(employeeDTO.getBirthdate()))
-            throw new InvalidDataException("Invalid format to birthdate date field. yyyy-MM-dd expected");
         if (!Helpers.isAdult(employeeDTO.getBirthdate()))
             throw new InvalidDataException("The employee must be an adult");
-        /* System.out.println("Age: " + Helpers.timeBetweenDates(employeeDTO.getBirthdate()));
-        System.out.println("Binding time: " + Helpers.timeBetweenDates(employeeDTO.getBind_date()));*/
         EmployeeModel employee = mapperModel(employeeDTO);
         EmployeeModel newEmployee = employeeRepository.save(employee);
         EmployeeDTO sending = mapperDTO(newEmployee);
@@ -62,6 +56,8 @@ public class EmployeeServiceImp implements EmployeeService{
     public EmployeeDTO updateEmployee(EmployeeDTO employeeDTO, Long id) throws ParseException {
         EmployeeModel employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", id));
+        if (!Helpers.isAdult(employeeDTO.getBirthdate()))
+            throw new InvalidDataException("The employee must be an adult");
         employee.setName(employeeDTO.getName());
         employee.setLast_name(employeeDTO.getLast_name());
         employee.setDoc_type(employeeDTO.getDoc_type());

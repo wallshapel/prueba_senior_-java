@@ -2,6 +2,10 @@ Usuario mysql:root
 Contraseña del usuario:
 Puerto:3306
 
+
+
+Es necesario crear la base de datos con su tabla employee antes de cualquier cosa
+
 CREATE DATABASE `company`;
 
 CREATE TABLE `employee` (
