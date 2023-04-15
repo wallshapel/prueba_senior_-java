@@ -1,5 +1,8 @@
 Funciona con JDK 1.8 (8)
-Ruta del servicio: http://localhost:2023/WS/Service?WSDL
-donde 2023 es el puerto
-El proyecto fue hecho en Eclipse 2023-03
-comando: java -jar company.jar
+
+Comando para correr el descriptor (WSDL): java -jar company.jar
+
+Ruta del descritor: http://localhost:2023/WS/Service?WSDL
+
+Luego de verificar que el descriptor funciona entonces se puede desplegar el archivo company-web.war
+en un servidor WildFly 21.0.1 o cualquier otro compatible
