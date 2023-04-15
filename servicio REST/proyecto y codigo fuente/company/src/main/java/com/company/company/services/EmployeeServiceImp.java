@@ -28,6 +28,8 @@ public class EmployeeServiceImp implements EmployeeService{
         List<EmployeeModel> employees = employeeRepository.findAll();
         List<EmployeeDTO> employeesDTOList = employees.stream().map(this::mapperDTO).collect(Collectors.toList());
         for (EmployeeDTO employeeDTO: employeesDTOList ) {
+            employeeDTO.setBirthdate(employeeDTO.getBirthdate().substring(0, 10));
+            employeeDTO.setBind_date(employeeDTO.getBind_date().substring(0, 10));
             employeeDTO.setAge(Helpers.timeBetweenDates(employeeDTO.getBirthdate().substring(0, 10)));  // Position 10 is excluded because (yyyy-MM-dd hh:mm:ss) at position 10 returns "cannot parsed"
             employeeDTO.setBindingTime(Helpers.timeBetweenDates(employeeDTO.getBind_date().substring(0, 10)));
         }
@@ -37,6 +39,8 @@ public class EmployeeServiceImp implements EmployeeService{
     public EmployeeDTO listEmployeeById(Long id) throws ParseException {
         EmployeeModel employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee", "id", id));
         EmployeeDTO employeeDTO = mapperDTO(employee);
+        employeeDTO.setBirthdate(employeeDTO.getBirthdate().substring(0, 10));
+        employeeDTO.setBind_date(employeeDTO.getBind_date().substring(0, 10));
         employeeDTO.setAge(Helpers.timeBetweenDates(employeeDTO.getBirthdate().substring(0, 10)));
         employeeDTO.setBindingTime(Helpers.timeBetweenDates(employeeDTO.getBind_date().substring(0, 10)));
         return employeeDTO;
