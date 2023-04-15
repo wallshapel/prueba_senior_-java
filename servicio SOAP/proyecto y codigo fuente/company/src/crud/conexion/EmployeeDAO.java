@@ -61,6 +61,7 @@ public class EmployeeDAO implements Operations {
 			ps.setLong(1, id);
 			rs = ps.executeQuery();
 			rs.next();
+			employee.setId(rs.getLong("id"));
 			employee.setName(rs.getString("name"));
 			employee.setLast_name(rs.getString("last_name"));
 			employee.setDoc_type(rs.getString("doc_type"));

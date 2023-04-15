@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 public class Conexion {
 	// Credentials
-	private static final String JDBC_URL = "jdbc:mysql://localhost:3306/company";
+	private static final String JDBC_URL = "jdbc:mysql://localhost:3306/company?allowPublicKeyRetrieval=true&useSSL=false";
 	private static final String JDBC_USER = "root";
 	private static final String JDBC_PASSWORD = "";
 	private static final String JDBC_NAME = "com.mysql.cj.jdbc.Driver";
@@ -18,11 +18,13 @@ public class Conexion {
 			System.out.println("Successful connection");
 		} catch (Exception e) {
 			System.out.println("Failed to load driver");
+			System.out.println(e);
 		}
 		try {
 			conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
 		} catch (Exception e) {
 			System.out.println("Error connecting to the DB");
+			System.out.println(e);
 		}
 		return conn;
 	}
