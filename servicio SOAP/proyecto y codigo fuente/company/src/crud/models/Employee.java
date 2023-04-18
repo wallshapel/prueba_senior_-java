@@ -115,5 +115,5 @@ public class Employee {
 		return "Empleado [id=" + id + ", name=" + name + ", last_name=" + last_name + ", doc_type=" + doc_type
 				+ ", doc=" + doc + ", birthdate=" + birthdate + ", bind_date=" + bind_date + ", position=" + position
 				+ ", salary=" + salary + ", age="+ age + ", binding time=" + bindingTime + "]";
-	}    
+	}
 }

@@ -12,6 +12,7 @@ public class Helpers {
         Date date;
         try {
             date = format.parse(stringDate);
+            System.out.println(date);
             return true;
         } catch (Exception e) {
             return false;
